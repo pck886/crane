@@ -422,7 +422,7 @@ jQuery(function ($) {
         $longitude = 2.354261,
         $map_zoom = 16; /* ZOOM SETTING */
         //google map custom marker icon
-    var $marker_url = 'img/map-marker.png';
+    var $marker_url = '/static/img/map-marker.png';
 
     //we define here the style of the map
     var style = [{
@@ -511,44 +511,4 @@ jQuery(function ($) {
 
     }());
 
-
-
-    // Twitter Feed on Footer Widget
-    (function () {
-        var twitterConfig = {
-            id: "567185781790228482", //put your Widget ID here
-            domId: "twitterWidget",
-            maxTweets: 3,
-            enableLinks: true,
-            showUser: false,
-            showTime: true,
-            showInteraction: false,
-            customCallback: handleTweets
-        };
-        twitterFetcher.fetch(twitterConfig);
-
-        function handleTweets(tweets) {
-            var x = tweets.length;
-            var n = 0;
-            var html = "";
-            while (n < x) {
-                html += '<div class="item">' + tweets[n] +
-                    "</div>";
-                n++
-            }
-            $(".twitter-widget").html(html);
-            $(".twitter_retweet_icon").html(
-                '<i class="fa fa-retweet"></i>');
-            $(".twitter_reply_icon").html(
-                '<i class="fa fa-reply"></i>');
-            $(".twitter_fav_icon").html(
-                '<i class="fa fa-star"></i>');
-            $(".twitter-widget").owlCarousel({
-                items: 1,
-                loop: true,
-                autoplay: true
-            });
-
-        }
-    }());
 }); // JQuery end

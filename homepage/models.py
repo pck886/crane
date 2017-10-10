@@ -22,8 +22,6 @@ class Home(models.Model):
     text = models.TextField(verbose_name='메인내용')
     created_date = models.DateTimeField(
             default=timezone.now)
-    published_date = models.DateTimeField(
-            blank=True, null=True)
 
     class Meta:
         verbose_name_plural = '메인페이지'
@@ -43,8 +41,6 @@ class About(models.Model):
     text = models.TextField(verbose_name='회사소개 내용')
     created_date = models.DateTimeField(
         default=timezone.now)
-    published_date = models.DateTimeField(
-        blank=True, null=True)
 
     class Meta:
         verbose_name_plural = '회사소개'
@@ -55,3 +51,25 @@ class About(models.Model):
 
     def __unicode__(self):
         return self.title
+
+
+class EquipmentIntro(models.Model):
+    author = models.ForeignKey('auth.User', default='crane')
+    photo = models.ImageField(upload_to=user_path, blank=True, verbose_name='장비사진')
+    model = models.CharField(max_length=200, default='', verbose_name='장비이름')
+    company = models.CharField(max_length=20, default='', verbose_name='제조회사')
+    boom = models.IntegerField(default=0, verbose_name='기본붐')
+    radius = models.IntegerField(default=0, verbose_name='최대작업반경')
+    capacity = models.IntegerField(default=0, verbose_name='최대인양능력')
+    created_date = models.DateTimeField(
+        default=timezone.now, verbose_name='등록일')
+
+    class Meta:
+        verbose_name_plural = '장비소개'
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
+    def __unicode__(self):
+        return self.model

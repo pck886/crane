@@ -7,7 +7,6 @@ from homepage import views
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^about/$', views.about, name='about'),
-    url(r'^blog/$', views.blog, name='blog'),
-    url(r'^post/(?P<pk>\d+)/$', views.home, name='post_detail'),
-    url(r'^post/new/$', views.post_new, name='post_new'),
+    url(r'^equipment_intro/$', views.equipment_intro, name='equipment_intro'),
+    url(r'^equipment_intro_single/(?P<pk>\d+)/$', views.equipment_intro_single, name='equipment_intro_single'),
 ]

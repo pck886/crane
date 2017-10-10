@@ -708,10 +708,11 @@ ABOUT PAGE
 }
 
 .company-in-number {
-  margin-top: 90px;
+  margin-top: 30px;
 }
 
-.company-in-number .timer {
+.company-in-number .timer,
+.company-in-number strong {
   font-size: 30px;
   font-weight: 700;
 }
@@ -725,17 +726,20 @@ ABOUT PAGE
 }
 
 .branch i,
-.branch .timer {
+.branch .timer,
+.branch strong {
   color: #f291a8;
 }
 
 .employee i,
-.employee .timer {
+.employee .timer,
+.employee strong {
   color: #80c5e5;
 }
 
 .delivery i,
-.delivery .timer {
+.delivery .timer,
+.delivery strong {
   color: #f3c979;
 }
 

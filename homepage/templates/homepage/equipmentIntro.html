@@ -1,0 +1,236 @@
+{% extends 'homepage/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<section class="page-title-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="page-header-wrap">
+					<div class="page-header">
+						<h1>장비소개</h1>
+					</div>
+				   <ol class="breadcrumb">
+					  <li><a href="#">홈</a></li>
+					  <li class="active">장비소개</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- blog-section -->
+<section class="blog-section section-content">
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+			<!-- posts-container -->
+			<div class="posts-container">
+				<div class="col-md-8 col-sm-8">
+					{% for equipment_intro in equipment_intros %}
+					<article class="blog-post-wrapper">
+						<div class="figure sticky-post">
+							<div class="post-thumbnail">
+								<img src="{% static 'img/blog/blog-2.jpg' %}" class="img-responsive " alt="">
+								<div class="blog-post-overlay"></div>
+								<a class="img-link" href="{% static 'img/blog/blog-2.jpg' %}"><small>
+									<img src="{% static 'img/zoomin.png' %}" alt="zoom"></small>
+								</a>
+							</div>
+						</div>
+						<header class="entry-header clearfix">
+							<aside>
+								<div class="posted-date pull-left">
+									<span class="day">{{ equipment_intro.created_date|date:'d' }}</span>
+									<span class="month">{{ equipment_intro.created_date|date:'M' }},</span>
+									<span class="year">{{ equipment_intro.created_date|date:'Y' }}</span>
+								</div>
+								<!--
+								<div class="post-like pull-right">
+									<a href="#"  title="Like this">
+										<i class="fa fa-heart"></i><span>3</span>
+									</a>
+								</div>
+								-->
+								<div class="clearfix"></div>
+
+							 </aside>
+
+							<h2 class="entry-title"><a href="equipmentIntro-single.html" rel="">{{ equipment_intro.model }}</a></h2>
+
+							<div class="entry-meta">
+								<ul class="list-inline">
+									<li>
+										<span class="author">
+											<small>By </small><a href="#" class="url">{{ equipment_intro.author }}</a>
+										</span>
+									</li>
+								</ul>
+							</div><!-- .entry-meta -->
+
+							<div class="entry-content">
+								<div class="company-in-number">
+									<div class="row">
+										<div class="col-xs-12 delivery clearfix">
+										  <i class="flaticon-logistcs"></i>
+
+										  <div>
+											<strong>{{ equipment_intro.company }}</strong>
+											<span class="facts-description">제조회사</span>
+										  </div>
+										</div><!-- /.col-sm-3 -->
+
+										<div class="col-xs-7 branch clearfix">
+										  <i class="flaticon-weight15"></i>
+
+										  <div class="number-info">
+											  <strong><span class="timer">{{ equipment_intro.capacity }}</span>TON</strong>
+											<span class="facts-description">인양능력</span>
+										  </div>
+
+										</div> <!-- /.col-sm-3 -->
+
+										<div class="col-xs-5 employee clearfix">
+										  <i class="flaticon-package24"></i>
+
+										  <div class="number-info">
+											<strong><span class="timer">{{ equipment_intro.radius }}</span>M</strong>
+											<span class="facts-description">최대작업반경</span>
+										  </div>
+										</div><!-- /.col-sm-3 -->
+
+										<div class="col-xs-7 delivery clearfix">
+										  <i class="flaticon-search93"></i>
+
+										  <div class="number-info">
+											<strong><span class="timer">{{ equipment_intro.boom }}</span>M</strong>
+											<span class="facts-description">기본붐</span>
+										  </div>
+										</div><!-- /.col-sm-3 -->
+
+
+									</div>
+								</div>
+							</div><!-- .entry-content -->
+						</header><!-- .entry-header -->
+
+						<!--<footer class="entry-footer">
+							<hr>
+							<a href="equipmentIntro-single.html" class="btn btn-primary btn-sm readmore">Continue reading</a>
+						</footer>-->
+					</article><!-- /.blog-post-wrapper -->
+					{% endfor %}
+
+					<!-- PAGINATION -->
+					<section class="pagination-wrap text-center">
+
+					<div class="blog-pagination">
+						<ul class="pagination">
+
+							<li class="disabled"><a class="prev" href="#">Prev.</a></li>
+							<li class="active"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">6</a></li>
+							<li><a href="#">7</a></li>
+							<li><a class="next" href="#">Next</a></li>
+
+						</ul>
+					</div>
+
+				</section>
+
+
+					<!-- END PAGINATION -->
+					<div class="clearfix"></div>
+
+				</div> <!-- /col-md-8 -->
+
+
+				<div class="col-md-4 col-sm-4">
+					<div class="sidebar-wrapper right-sidebar">
+
+						<aside class="widget widget_search">
+							<form role="search" method="get" class="search-form">
+								<label>
+									<span class="screen-reader-text">Search for:</span>
+									<input type="search" class="form-control search-field" placeholder="Search" value="" name="s" title="Search for:">
+								</label>
+								 <button type="submit">Go<i class="fa fa-angle-right"></i></button>
+							</form>
+						</aside>
+
+
+					</div><!-- /.sidebar -->
+
+				 </div><!-- /.col -->
+			</div> <!-- /posts-container -->
+		</div><!-- /row -->
+	</div><!-- /container -->
+</section><!-- /blog-section -->
+
+ <!-- footer-widget-section start -->
+<section class="footer-widget-section section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-md-offset-1 col-sm-4">
+				<div class="footer-widget">
+					<h3>Place &amp; Contact</h3>
+
+					<address>
+					  384 Maple Circle<br>
+					  Simi Valley, Nevada 47424<br>
+
+					  <!-- Google Map Modal Trigger -->
+					  <button type="button" class="modal-map" data-toggle="modal" data-target="#cssMapModal">Location  Map</button>
+
+					  <span class="tel">(554) 616-9926</span>
+					</address>
+
+
+					<!-- Modal -->
+					<div class="modal fade" id="cssMapModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-dialog modal-lg">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">Our Location</h4>
+						  </div>
+						  <div class="modal-body">
+
+							<div id="googleMap"></div>
+
+						  </div>
+						</div><!-- /.modal-content -->
+					  </div><!-- /.modal-dialog -->
+					</div><!-- End Modal -->
+				</div><!-- /.footer-widget -->
+			</div><!-- /.col-md-4 -->
+
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.cta-section -->
+<!-- footer-widget-section end -->
+
+<!-- copyright-section start -->
+<footer class="copyright-section">
+	<div class="container text-center">
+		<div class="footer-menu">
+			<ul>
+				<li><a href="#">Privacy &amp; Cookies</a></li>
+				<li><a href="#">Terms &amp; Conditions</a></li>
+				<li><a href="#">Accessibility</a></li>
+			</ul>
+		</div>
+
+		<div class="copyright-info">
+			<span>Copyright © 2015 Unship. All Rights Reserved. Designed by <a href="https://uicookies.com">uiCookies</a><br> Proudly powered by <a href="http://www.w3schools.com/html/html5_intro.asp">HTML5</a> and <a href="getbootstrap.com">Bootstrap3</a></span>
+		</div>
+	</div><!-- /.container -->
+</footer>
+<!-- copyright-section end -->
+{% endblock %}
