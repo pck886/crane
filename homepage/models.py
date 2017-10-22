@@ -73,7 +73,7 @@ class EquipmentIntro(models.Model):
     boom = models.IntegerField(default=0, verbose_name='기본붐')
     radius = models.IntegerField(default=0, verbose_name='최대작업반경')
     capacity = models.IntegerField(default=0, verbose_name='최대인양능력')
-    xlsfile = models.FileField(upload_to=user_path, blank=True, validators=[validate_file_extension], verbose_name='엑셀파일')
+    xls_file = models.FileField(upload_to=user_path, blank=True, validators=[validate_file_extension], verbose_name='엑셀파일')
     created_date = models.DateTimeField(auto_now_add=True, verbose_name='등록일')
     modified_date = models.DateTimeField(auto_now=True, verbose_name='수정일')
 
