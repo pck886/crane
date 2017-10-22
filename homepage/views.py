@@ -2,7 +2,8 @@
 from __future__ import unicode_literals
 
 from django.db.models import Max
-from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render
 
 from .models import Home, About, EquipmentIntro
 from .forms import PostForm
@@ -20,7 +21,21 @@ def about(request):
 
 def equipment_intro(request):
     equipment_intros = EquipmentIntro.objects.all()
-    return render(request, 'homepage/equipmentIntro.html', {'equipment_intros': equipment_intros})
+
+    paginator = Paginator(equipment_intros, 5)  # Show 25 contacts per page
+
+    page = request.GET.get('page')
+
+    try:
+        contacts = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        contacts = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        contacts = paginator.page(paginator.num_pages)
+
+    return render(request, 'homepage/equipmentIntro.html', {'equipment_intros': contacts})
 
 
 def equipment_intro_single(request):

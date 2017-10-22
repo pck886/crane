@@ -28,12 +28,61 @@
 		<div class="row">
 			<!-- posts-container -->
 			<div class="posts-container">
-				<div class="col-md-8 col-sm-8">
+				<div class="col-md-12 col-sm-12">
 					{% for equipment_intro in equipment_intros %}
 					<article class="blog-post-wrapper">
 						<div class="figure sticky-post">
 							<div class="post-thumbnail">
-								<img src="{% static 'img/blog/blog-2.jpg' %}" class="img-responsive " alt="">
+
+								<div id="main_area" class="col-md-12 col-sm-12">
+									<!-- Slider -->
+									<div class="col-sm-6 hide-bullets">
+										<div class="col-xs-12" id="slider">
+											<!-- Top part of the slider -->
+												<div class="col-sm-12" id="carousel-bounding-box">
+													<div class="carousel slide" id="myCarousel">
+														<!-- Carousel items -->
+														<div class="carousel-inner">
+															{% for image in equipment_intro.images_set.all %}
+															<div class="{% if forloop.counter is 1 %}active{% endif %} item" data-slide-number="{{ forloop.counter0 }}">
+																<img src="{{ image.image.url }}">
+															</div>
+															{% endfor %}
+														</div>
+
+														<!-- Carousel nav -->
+														<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+															<span class="glyphicon glyphicon-chevron-left"></span>
+														</a>
+														<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+															<span class="glyphicon glyphicon-chevron-right"></span>
+														</a>
+													</div>
+												</div>
+										</div>
+									</div>
+									<div class="col-sm-6" id="slider-thumbs">
+										<!-- Bottom switcher of slider -->
+										<ul class="hide-bullets">
+											{% for image in equipment_intro.images_set.all %}
+											<li class="col-sm-3">
+												<a class="thumbnail" id="carousel-selector-{{ forloop.counter0 }}">
+													<img src="{{ image.image.url }}">
+												</a>
+											</li>
+											{% endfor %}
+										</ul>
+									</div>
+
+									<!--/Slider-->
+								</div>
+								<!--
+								<ul class="row">
+  									<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+  										  <img src="{% static 'img/blog/blog-2.jpg' %}" class="img-responsive " alt="">
+									</li>
+								</ul>
+								-->
 								<div class="blog-post-overlay"></div>
 								<a class="img-link" href="{% static 'img/blog/blog-2.jpg' %}"><small>
 									<img src="{% static 'img/zoomin.png' %}" alt="zoom"></small>
@@ -73,7 +122,7 @@
 							<div class="entry-content">
 								<div class="company-in-number">
 									<div class="row">
-										<div class="col-xs-12 delivery clearfix">
+										<div class="col-xs-12 clearfix" style="color: #8ee08d;">
 										  <i class="flaticon-logistcs"></i>
 
 										  <div>
@@ -116,44 +165,40 @@
 							</div><!-- .entry-content -->
 						</header><!-- .entry-header -->
 
-						<!--<footer class="entry-footer">
+						<footer class="entry-footer">
 							<hr>
-							<a href="equipmentIntro-single.html" class="btn btn-primary btn-sm readmore">Continue reading</a>
-						</footer>-->
+							<a href="{{ equipment_intro.xlsfile.url }}" class="btn btn-primary btn-sm readmore">엑셀다운로드</a>
+						</footer>
 					</article><!-- /.blog-post-wrapper -->
 					{% endfor %}
 
 					<!-- PAGINATION -->
 					<section class="pagination-wrap text-center">
 
-					<div class="blog-pagination">
-						<ul class="pagination">
+						<div class="blog-pagination">
+							<ul class="pagination">
+								{% if equipment_intros.has_previous %}
+									<li><a class="prev" href="?page={{ equipment_intros.previous_page_number }}">Prev.</a></li>
+								{% else %}
+									<li class="disabled"><a class="prev" href="#">Prev.</a></li>
+								{% endif %}
 
-							<li class="disabled"><a class="prev" href="#">Prev.</a></li>
-							<li class="active"><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#">6</a></li>
-							<li><a href="#">7</a></li>
-							<li><a class="next" href="#">Next</a></li>
+								{% for page in equipment_intros.paginator.page_range %}
+									<li class="{% if forloop.counter is 1 %}active{% endif %}"><a href="?page={{ page }}">{{page}}</a></li>
+								{% endfor %}
 
-						</ul>
-					</div>
+								{% if equipment_intros.has_next %}
+									<li><a class="next" href="?page={{ equipment_intros.next_page_number }}">Next</a></li>
+								{% else %}
+									<li class="disabled"><a class="next" href="#">Next</a></li>
+								{% endif %}
 
-				</section>
+							</ul>
+						</div>
 
-
+					</section>
 					<!-- END PAGINATION -->
-					<div class="clearfix"></div>
-
-				</div> <!-- /col-md-8 -->
-
-
-				<div class="col-md-4 col-sm-4">
-					<div class="sidebar-wrapper right-sidebar">
-
+					<div class="col-xs-4">
 						<aside class="widget widget_search">
 							<form role="search" method="get" class="search-form">
 								<label>
@@ -163,10 +208,7 @@
 								 <button type="submit">Go<i class="fa fa-angle-right"></i></button>
 							</form>
 						</aside>
-
-
-					</div><!-- /.sidebar -->
-
+					</div> <!-- /col-xs-4 -->
 				 </div><!-- /.col -->
 			</div> <!-- /posts-container -->
 		</div><!-- /row -->
@@ -179,7 +221,7 @@
 		<div class="row">
 			<div class="col-md-3 col-md-offset-1 col-sm-4">
 				<div class="footer-widget">
-					<h3>Place &amp; Contact</h3>
+					<h3>회사위치</h3>
 
 					<address>
 					  384 Maple Circle<br>

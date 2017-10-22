@@ -2,7 +2,13 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from .models import Home, About, EquipmentIntro
+from .models import Home, About, EquipmentIntro, Images
+
+
+class ImagesInline(admin.TabularInline):
+    model = Images
+    fields = ['image', ]
+    extra = 4
 
 
 class HomeAdmin(admin.ModelAdmin):
@@ -18,7 +24,8 @@ class AboutAdmin(admin.ModelAdmin):
 
 
 class EquipmentIntroAdmin(admin.ModelAdmin):
-    list_display = ('id', 'model', 'company', 'boom', 'radius', 'capacity', 'photo', 'created_date')
+    inlines = [ImagesInline, ]
+    list_display = ('id', 'model', 'company', 'boom', 'radius', 'capacity', 'created_date')
     list_display_links = ('id', 'model')
     search_fields = ('model',)
 
