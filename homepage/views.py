@@ -22,6 +22,10 @@ def about(request):
 def equipment_intro(request):
     equipment_intros = EquipmentIntro.objects.all()
 
+    if equipment_intros is None:
+        return render(request, 'homepage/equipmentIntro.html', {'equipment_intros': equipment_intros})
+
+
     paginator = Paginator(equipment_intros, 5)  # Show 25 contacts per page
 
     page = request.GET.get('page')
