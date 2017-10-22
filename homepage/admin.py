@@ -25,7 +25,7 @@ class AboutAdmin(admin.ModelAdmin):
 
 class EquipmentIntroAdmin(admin.ModelAdmin):
     inlines = [ImagesInline, ]
-    list_display = ('id', 'model', 'company', 'boom', 'radius', 'capacity', 'created_date')
+    list_display = ('id', 'model', 'company', 'boom', 'radius', 'capacity', 'xls_file', 'created_date')
     list_display_links = ('id', 'model')
     search_fields = ('model',)
 
