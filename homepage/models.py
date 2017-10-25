@@ -10,7 +10,7 @@ def validate_file_extension(value):
     import os
     from django.core.exceptions import ValidationError
     ext = os.path.splitext(value.name)[1]  # [0] returns path+filename
-    valid_extensions = ['.jpg', 'jpeg', '.png', '.gif', '.xlsx', '.xls']
+    valid_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.xlsx', '.xls']
     if not ext.lower() in valid_extensions:
         raise ValidationError(u'업로드 불가능한 파일형식 입니다.')
 
