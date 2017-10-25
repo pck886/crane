@@ -725,6 +725,13 @@ ABOUT PAGE
   font-size: 100px;
 }
 
+
+.made i,
+.made .timer,
+.made strong {
+  color: #8ee08d;
+}
+
 .branch i,
 .branch .timer,
 .branch strong {
