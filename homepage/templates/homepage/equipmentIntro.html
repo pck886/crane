@@ -40,7 +40,7 @@
 										<div class="col-xs-12" id="slider">
 											<!-- Top part of the slider -->
 												<div class="col-sm-12" id="carousel-bounding-box">
-													<div class="carousel slide" id="myCarousel">
+													<div class="carousel slide" id="myCarousel-{{ forloop.counter0 }}" name="myCarousel-{{ forloop.counter0 }}">
 														<!-- Carousel items -->
 														<div class="carousel-inner">
 															{% for image in equipment_intro.images_set.all %}
@@ -51,17 +51,17 @@
 														</div>
 
 														<!-- Carousel nav -->
-														<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+														<a class="left carousel-control" href="#myCarousel-{{ forloop.counter0 }}" role="button" data-slide="prev">
 															<span class="glyphicon glyphicon-chevron-left"></span>
 														</a>
-														<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+														<a class="right carousel-control" href="#myCarousel-{{ forloop.counter0 }}" role="button" data-slide="next">
 															<span class="glyphicon glyphicon-chevron-right"></span>
 														</a>
 													</div>
 												</div>
 										</div>
 									</div>
-									<div class="col-sm-6" id="slider-thumbs">
+									<div class="col-sm-6" id="slider-thumbs-{{ forloop.counter0 }}">
 										<!-- Bottom switcher of slider -->
 										<ul class="hide-bullets">
 											{% for image in equipment_intro.images_set.all %}
@@ -186,7 +186,7 @@
 								{% endif %}
 
 								{% for page in equipment_intros.paginator.page_range %}
-									<li class="{% if forloop.counter is 1 %}active{% endif %}"><a href="?page={{ page }}">{{page}}</a></li>
+									<li class="{% if equipment_intros.paginator.num_pages is page %}active{% endif %}"><a href="?page={{ page }}">{{page}}</a></li>
 								{% endfor %}
 
 								{% if equipment_intros.has_next %}
