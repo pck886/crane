@@ -186,7 +186,9 @@
 								{% endif %}
 
 								{% for page in equipment_intros.paginator.page_range %}
-									<li class="{% if equipment_intros.paginator.num_pages is page %}active{% endif %}"><a href="?page={{ page }}">{{page}}</a></li>
+									<li class="{% if equipment_intros.paginator.num_pages == page %}active{% endif %}"><a href="?page={{ page }}">{{page}}</a></li>
+									<input type="hidden" value="equipment_intros.paginator.num_pages"/>
+									<input type="hidden" value="equipment_intros.number"/>
 								{% endfor %}
 
 								{% if equipment_intros.has_next %}
