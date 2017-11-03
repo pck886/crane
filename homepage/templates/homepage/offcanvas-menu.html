@@ -1,0 +1,39 @@
+{% load staticfiles %}
+
+<!-- OFF CANVAS MENU -->
+<div class="offcanvas-menu offcanvas-effect">
+    <div class="offcanvas-wrap">
+        <div class="off-canvas-header">
+            <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="off-canvas-close-btn">&times;</button>
+        </div>
+        <ul id ="offcanvasMenu" class="list-unstyled visible-xs visible-sm">
+            <li class="active"><a href="{% url 'home' %}">홈<span class="sr-only">(current)</span></a></li>
+            <li>
+                <li><a href="{% url 'about' %}">회사소개</a></li>
+            </li>
+            <li>
+                <li><a href="{% url 'equipment_intro' %}">장비소개</a></li>
+            </li>
+            <!-- <li><a href="contact.html">Contact</a></li> -->
+        </ul>
+        <div class="offcanvas-widgets hidden-sm hidden-xs">
+            <div id="twitterWidget">
+                <h2>Tweeter feed</h2>
+                <div class="twitter-widget"></div>
+            </div>
+            <div class="newsletter-widget">
+                <h2>Stay in Touch</h2>
+                <p>Enter your email address to receive news &amp; offers from us</p>
+
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <label class="sr-only" for="InputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="InputEmail2" placeholder="Your email address">
+                        <button type="submit" class="btn">Send &nbsp;<i class="fa fa-angle-right"></i></button>
+                    </div>
+                </form>
+
+            </div><!-- newsletter-widget -->
+        </div>
+    </div>
+</div><!-- .offcanvas-menu -->

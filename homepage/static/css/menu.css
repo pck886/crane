@@ -80,6 +80,7 @@ NAVIGATION
   border-color: transparent;
   color: #7b8a97;
   font-size: 12px;
+  padding-left: 20px;
 }
 
 .navbar-default .navbar-toggle:hover, 

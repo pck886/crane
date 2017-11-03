@@ -2,6 +2,7 @@
 {% load staticfiles %}
 
 {% block content %}
+{% include 'homepage/header.html' %}
 <section class="page-title-section">
 	<div class="container">
 		<div class="row">
@@ -221,67 +222,6 @@
 		</div><!-- /row -->
 	</div><!-- /container -->
 </section><!-- /blog-section -->
-
- <!-- footer-widget-section start -->
-<section class="footer-widget-section section-padding">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3 col-md-offset-1 col-sm-4">
-				<div class="footer-widget">
-					<h3>회사위치</h3>
-
-					<address>
-						경북 칠곡군<br>
-						지천면 오산리 479-1<br>
-
-						<!-- Google Map Modal Trigger -->
-						<button type="button" class="modal-map" data-toggle="modal" data-target="#cssMapModal">회사위치</button>
-
-						<span class="tel">(053) 357-2271</span>
-					</address>
-
-
-					<!-- Modal -->
-					<div class="modal fade" id="cssMapModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					  <div class="modal-dialog modal-lg">
-						<div class="modal-content">
-						  <div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<h4 class="modal-title" id="myModalLabel">회사위치</h4>
-						  </div>
-						  <div class="modal-body">
-
-							<div id="googleMap"></div>
-
-						  </div>
-						</div><!-- /.modal-content -->
-					  </div><!-- /.modal-dialog -->
-					</div><!-- End Modal -->
-				</div><!-- /.footer-widget -->
-			</div><!-- /.col-md-4 -->
-			<div class="col-sm-9">
-				asdf
-			</div>
-		</div><!-- /.row -->
-	</div><!-- /.container -->
-</section><!-- /.cta-section -->
-<!-- footer-widget-section end -->
-
-<!-- copyright-section start -->
-<footer class="copyright-section">
-	<div class="container text-center">
-		<div class="footer-menu">
-			<ul>
-				<li><a href="#">Privacy &amp; Cookies</a></li>
-				<li><a href="#">Terms &amp; Conditions</a></li>
-				<li><a href="#">Accessibility</a></li>
-			</ul>
-		</div>
-
-		<div class="copyright-info">
-			<span>Copyright © 2015 Unship. All Rights Reserved. Designed by <a href="https://uicookies.com">uiCookies</a><br> Proudly powered by <a href="http://www.w3schools.com/html/html5_intro.asp">HTML5</a> and <a href="getbootstrap.com">Bootstrap3</a></span>
-		</div>
-	</div><!-- /.container -->
-</footer>
-<!-- copyright-section end -->
+{% include 'homepage/cta.html' %}
+{% include 'homepage/footer-widget.html' %}
 {% endblock %}

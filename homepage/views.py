@@ -1,29 +1,35 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db.models import Max
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 
-from .models import Home, About, EquipmentIntro
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from serializers import SnippetSerializer
+
+from .models import Home, About, EquipmentIntro, CompanyInfo, Cta
 from .forms import PostForm
 
 
 def home(request):
     homes = Home.objects.filter().order_by('pk')
-    return render(request, 'homepage/index.html', {'homes': homes})
+    company = CompanyInfo.objects.order_by('pk').first()
+    return render(request, 'homepage/index.html', {'homes': homes, 'company': company})
 
 
 def about(request):
-    abouts = About.objects.aggregate(pk=Max('pk'), title=Max('title'), text=Max('text'))
-    return render(request, 'homepage/about.html', {'abouts': abouts})
+    abouts = About.objects.order_by('pk').first()
+    company = CompanyInfo.objects.order_by('pk').first()
+    return render(request, 'homepage/about.html', {'abouts': abouts, 'company': company})
 
 
 def equipment_intro(request):
     equipment_intros = EquipmentIntro.objects.all()
+    company = CompanyInfo.objects.order_by('pk').first()
 
     if equipment_intros is None:
-        return render(request, 'homepage/equipmentIntro.html', {'equipment_intros': equipment_intros})
+        return render(request, 'homepage/equipmentIntro.html', {'equipment_intros': equipment_intros, 'company': company})
 
 
     paginator = Paginator(equipment_intros, 5)  # Show 25 contacts per page
@@ -39,7 +45,17 @@ def equipment_intro(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         contacts = paginator.page(paginator.num_pages)
 
-    return render(request, 'homepage/equipmentIntro.html', {'equipment_intros': contacts})
+    return render(request, 'homepage/equipmentIntro.html', {'equipment_intros': contacts, 'company': company})
+
+
+def cta(request):
+    if request.method == 'POST':
+        serializer = SnippetSerializer(data=request.POST)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=200)
+
+    return JsonResponse(serializer.errors, status=400)
 
 
 def equipment_intro_single(request):

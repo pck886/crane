@@ -1,0 +1,25 @@
+<!-- footer-widget-section start -->
+<section class="footer-widget-section section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-md-offset-1 col-sm-4">
+				<div class="footer-widget">
+					<h3>회사위치</h3>
+
+					<address>
+						{{ company.address|linebreaksbr }}
+
+						{% for phone in company.phones_set.all %}
+						<span class="tel">{{ phone.number }}</span>
+						{% endfor %}
+					</address>
+				</div><!-- /.footer-widget -->
+			</div><!-- /.col-md-4 -->
+			<div class="col-md-5 col-md-offset-0 col-sm-4">
+				<div id="googleMap"></div>
+			</div>
+
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.cta-section -->
+<!-- footer-widget-section end -->

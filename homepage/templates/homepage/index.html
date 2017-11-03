@@ -2,6 +2,7 @@
 {% load staticfiles %}
 
 {% block content %}
+{% include 'homepage/header.html' %}
 <div id="main-carousel" class="carousel slide hero-slide" data-ride="carousel">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
@@ -47,6 +48,8 @@
 	{% endif %}
 </div>
 <!-- #main-carousel-->
+{% include 'homepage/cta.html' %}
+{% include 'homepage/footer-widget.html' %}
 {% endblock %}
 
 

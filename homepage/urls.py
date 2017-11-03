@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^about/$', views.about, name='about'),
     url(r'^equipment_intro/$', views.equipment_intro, name='equipment_intro'),
     url(r'^equipment_intro_single/(?P<pk>\d+)/$', views.equipment_intro_single, name='equipment_intro_single'),
+    url(r'^cta/$',views.cta, name='cta'),
 ]

@@ -114,7 +114,7 @@ jQuery(function ($) {
     // OffCanvas
     // -------------------------------------------------------------
 
-   (function () {
+    (function () {
         $('button.navbar-toggle').HippoOffCanvasMenu({
 
         documentWrapper: '#st-container',
@@ -393,21 +393,26 @@ jQuery(function ($) {
 
             $this.prevAll('.alert').remove();
 
-            $.post( $action, $data, function( data ) {
-
-                if( data.response=='error' ){
-
-                    $this.before( '<div class="alert alert-danger">'+data.message+'</div>' );
-                }
-
-                if( data.response=='success' ){
-
-                    $this.before( '<div class="alert alert-success">'+data.message+'</div>' );
+            $.ajax({
+                url: $action,
+                data: $data,
+                type: 'POST',
+                success: function (data) {
+                    $this.before( '<div class="alert alert-success">'+ '문의사항을 등록하였습니다.' +'</div>' );
                     $this.find('input, textarea').val('');
+                },
+                error: function (data) {
+                    var email = data.responseJSON.email[0];
+
+                    if(email != "" && email != undefined && email != null){
+                         $this.before( '<div class="alert alert-danger">'+ email +'</div>' );
+                         return;
+                    }
+
+                    $this.before( '<div class="alert alert-danger">'+ '문의사항 등록에 실패하였습니다.' +'</div>' );
                 }
 
-            }, "json");
-
+            });
         });
     }());
 
