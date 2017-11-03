@@ -7,5 +7,3 @@ db.sqlite3
 .DS_Store
 .idea
 /homepage/migrations
-/uploads
-homepage/migrations/0006_auto_20171023_0254\.py
