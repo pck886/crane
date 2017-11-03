@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from rest_framework import serializers
-from models import Cta
+from .models import Cta
 
 
 class SnippetSerializer(serializers.Serializer):
