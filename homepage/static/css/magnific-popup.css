@@ -431,7 +431,7 @@ img.mfp-img {
     position: fixed;
     text-align: center;
     padding: 0;
-  };
+  }
 }
 
 @media all and (max-width: 900px) {
@@ -453,7 +453,7 @@ img.mfp-img {
   .mfp-container {
     padding-left: 6px;
     padding-right: 6px;
-  };
+  }
 }
 
 .mfp-ie7 .mfp-img {
