@@ -55,7 +55,7 @@ Author: Cloud Software Solution Ltd.
 
 .hero-slide .carousel-caption .lead {
     font-size               : 24px;
-    color                   : #555555;
+    color                   : #000000;
     font-weight             : normal;
     margin-bottom           : 30px;
     -webkit-animation-delay : 200ms;
@@ -697,6 +697,7 @@ ABOUT PAGE
 }
 
 .about-intro {
+    color: #000000;
 }
 
 .about-intro h2 {
@@ -845,7 +846,7 @@ ABOUT PAGE
   font-weight: 700;
   line-height: 50px;
   font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
-  color: #ccc;
+  color: #000000;
   margin-bottom: 5px;
 }
 
