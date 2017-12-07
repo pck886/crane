@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import url
-
+from django.views.generic import TemplateView
 
 from homepage import views
 
@@ -10,4 +10,6 @@ urlpatterns = [
     url(r'^equipment_intro/$', views.equipment_intro, name='equipment_intro'),
     url(r'^equipment_intro_single/(?P<pk>\d+)/$', views.equipment_intro_single, name='equipment_intro_single'),
     url(r'^cta/$',views.cta, name='cta'),
+    url(r'^robots.txt$', TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
+        name="project_robots_file"),
 ]
