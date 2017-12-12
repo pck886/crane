@@ -55,3 +55,8 @@ def cta(request):
             return JsonResponse(serializer.data, status=200)
 
     return JsonResponse(serializer.errors, status=400)
+
+
+def equipment_intro_single(request):
+    form = PostForm()
+    return render(request, 'homepage/equipmentIntro-single.html', {'form': form})
