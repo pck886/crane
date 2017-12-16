@@ -158,6 +158,9 @@
 
 										  <div class="number-info">
 											<strong><span class="timer">{{ equipment_intro.boom }}</span>M</strong>
+											{% if equipment_intro.singular != 0 %}
+												<strong><span class="timer">{{ equipment_intro.singular }}</span>단</strong>
+											{% endif %}
 											<span class="facts-description">기본붐</span>
 										  </div>
 										</div><!-- /.col-sm-3 -->
@@ -170,7 +173,7 @@
 
 						<footer class="entry-footer" style="margin-top: 20px">
 							{% if equipment_intro.xls_file %}
-								<a href="{{ equipment_intro.xls_file.url }}" class="btn btn-primary btn-sm readmore">다운로드</a>
+								<a href="{{ equipment_intro.xls_file.url }}" class="btn btn-primary btn-sm readmore">제원표</a>
 							{% endif %}
 							<hr>
 						</footer>

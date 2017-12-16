@@ -85,6 +85,7 @@ class EquipmentIntro(models.Model):
     model = models.CharField(max_length=200, default='', verbose_name='장비이름')
     company = models.CharField(max_length=20, default='', verbose_name='제조회사')
     boom = models.FloatField(default=0, verbose_name='기본붐')
+    singular = models.IntegerField(default=0, verbose_name='기본붐 단수')
     radius = models.FloatField(default=0, verbose_name='최대작업반경')
     capacity = models.FloatField(default=0, verbose_name='최대인양능력')
     xls_file = models.FileField(upload_to=user_path, blank=True, validators=[validate_file_extension], verbose_name='엑셀파일')
