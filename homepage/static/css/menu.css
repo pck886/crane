@@ -30,6 +30,7 @@ NAVIGATION
 
 .navbar-default .navbar-nav>li>a {
   color: #7b8a97;
+  font-weight: bold;
 }
 
 .navbar-nav>li>a {
