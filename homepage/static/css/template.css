@@ -806,7 +806,7 @@ POPUP FEATURE
 }
 
 /* ------------------------------------------------------------------
-CTA SECTION
+CTA SECTION ------
 --------------------------------------------------------------------- */
 .cta-section {
   background-color: #65d3e3;
@@ -822,7 +822,6 @@ CTA SECTION
   overflow: hidden;
   position: relative;
   font-weight: bold;
-
 }
 
 .quote-btn:hover {
