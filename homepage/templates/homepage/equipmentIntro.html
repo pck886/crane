@@ -158,14 +158,16 @@
 
 										  <div class="number-info">
 											<strong><span class="timer">{{ equipment_intro.boom }}</span>M</strong>
-											{% if equipment_intro.singular != 0 %}
-												<strong class="padding-left-10">
-													<span>보조</span>
-													<span class="timer">{{ equipment_intro.singular }}</span> 단
-													<span class="padding-left-10">{{ equipment_intro.singular_meter }}M</span>
-												</strong>
-											{% endif %}
 											<span class="facts-description">기본붐</span>
+										  </div>
+										</div><!-- /.col-sm-3 -->
+
+										<div class="col-xs-5 delivery clearfix">
+										  <i class="flaticon-logistics50"></i>
+
+										  <div class="number-info">
+											<strong><span class="timer">{{ equipment_intro.singular_meter }}</span>M</strong>
+											<span class="facts-description">보조 {{ equipment_intro.singular }} 단</span>
 										  </div>
 										</div><!-- /.col-sm-3 -->
 
