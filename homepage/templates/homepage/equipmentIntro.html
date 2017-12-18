@@ -159,7 +159,11 @@
 										  <div class="number-info">
 											<strong><span class="timer">{{ equipment_intro.boom }}</span>M</strong>
 											{% if equipment_intro.singular != 0 %}
-												<strong><span class="timer">{{ equipment_intro.singular }}</span>단</strong>
+												<strong class="padding-left-10">
+													<span>보조</span>
+													<span class="timer">{{ equipment_intro.singular }}</span> 단
+													<span class="padding-left-10">{{ equipment_intro.singular_meter }}M</span>
+												</strong>
 											{% endif %}
 											<span class="facts-description">기본붐</span>
 										  </div>
