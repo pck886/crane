@@ -859,6 +859,7 @@ equipmentIntro number
   color: #606676;
   text-transform: uppercase;
   margin-bottom: 70px;
+  font-weight: bold;
 }
 
 .history-info h3 {

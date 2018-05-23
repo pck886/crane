@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from .models import Home, About, EquipmentIntro, Images, Equipments, Phones, CompanyInfo, Cta
+from .models import Home, About, EquipmentIntro, Images, Equipments, Phones, CompanyInfo, Cta, ImageBoard
 
 
 class ImagesInline(admin.TabularInline):
@@ -57,8 +57,15 @@ class CtaAdmin(admin.ModelAdmin):
     search_fields = ('subject', 'message',)
 
 
+class ImageBoardAdmin(admin.ModelAdmin):
+    list_display = ('id', 'subject', 'message', 'image', 'created_date')
+    list_display_links = ('id', 'subject')
+    search_fields = ('subject', 'message',)
+
+
 admin.site.register(Home, HomeAdmin)
 admin.site.register(About, AboutAdmin)
 admin.site.register(EquipmentIntro, EquipmentIntroAdmin)
 admin.site.register(CompanyInfo, CompanyInfoAdmin)
 admin.site.register(Cta, CtaAdmin)
+admin.site.register(ImageBoard, ImageBoardAdmin)

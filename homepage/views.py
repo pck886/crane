@@ -7,7 +7,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from .serializers import SnippetSerializer
 
-from .models import Home, About, EquipmentIntro, CompanyInfo
+from .models import Home, About, EquipmentIntro, CompanyInfo, ImageBoard
 from .forms import PostForm
 
 
@@ -55,6 +55,28 @@ def cta(request):
             return JsonResponse(serializer.data, status=200)
 
     return JsonResponse(serializer.errors, status=400)
+
+
+def image_board(request):
+    images = ImageBoard.objects.all()
+
+    if images is None:
+        return render(request, 'homepage/imageBoard.html', {'images': images})
+
+    paginator = Paginator(images, 5)
+
+    page = request.GET.get('page')
+
+    try:
+        contacts = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        contacts = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        contacts = paginator.page(paginator.num_pages)
+
+    return render(request, 'homepage/imageBoard.html', {'images': images})
 
 
 def equipment_intro_single(request):
