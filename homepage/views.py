@@ -79,6 +79,10 @@ def image_board(request):
     return render(request, 'homepage/imageBoard.html', {'images': images})
 
 
+def image_board_sigle(request):
+    return render(request, 'homepage/imageBoardSigle.html')
+
+
 def equipment_intro_single(request):
     form = PostForm()
     return render(request, 'homepage/equipmentIntro-single.html', {'form': form})
