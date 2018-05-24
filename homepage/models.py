@@ -152,6 +152,7 @@ class Cta(models.Model):
 
 class ImageBoard(models.Model):
     author = models.ForeignKey(User, default=User, verbose_name='작성자')
+    name = models.CharField(max_length=20, default='', verbose_name='이름')
     subject = models.CharField(max_length=200, default='', verbose_name='제목')
     message = models.TextField(verbose_name='내용')
     created_date = models.DateTimeField(auto_now_add=True, verbose_name='등록일')
