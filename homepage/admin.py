@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from .models import Home, About, EquipmentIntro, Images, Equipments, Phones, CompanyInfo, Cta, ImageBoard
+from .models import Home, About, EquipmentIntro, Images, Equipments, Phones, CompanyInfo, Cta, ImageBoard, BoardImages
 
 
 class BoardImagesInline(admin.TabularInline):
