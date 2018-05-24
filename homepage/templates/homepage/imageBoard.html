@@ -9,7 +9,7 @@
 			<div class="col-xs-12">
 				<div class="page-header-wrap">
 					<div class="page-header">
-						<h1>장비소개</h1>
+						<h1>사진게시판</h1>
 					</div>
 				   <ol class="breadcrumb">
 					  <li><a href="#">홈</a></li>
@@ -36,7 +36,7 @@
 							<div id="blog-post-carousel" class="carousel slide blog-carousel" data-ride="carousel">
 								<!-- Wrapper for slides -->
 						        <div class="carousel-inner">
-						        	{% for image in image.images_set.all %}
+						        	{% for image in board_image.images_set.all %}
 									<div class="item {% if forloop.counter is 1 %}active{% endif %}">
 										<div class="post-thumbnail">
 											<img class="img-responsive" src="{{ image.image.url }}">
@@ -57,9 +57,9 @@
 						<header class="entry-header clearfix">
 							<aside>
 								<div class="posted-date pull-left">
-								    <span class="day">{{ image.created_date|date:'d' }}</span>
-									<span class="month">{{ image.created_date|date:'M' }},</span>
 									<span class="year">{{ image.created_date|date:'Y' }}</span>
+									<span class="month">{{ image.created_date|date:'M' }},</span>
+									<span class="day">{{ image.created_date|date:'d' }}</span>
 								</div>	
 						        <div class="clearfix"></div>
 						    </aside>

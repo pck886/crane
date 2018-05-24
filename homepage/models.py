@@ -151,8 +151,7 @@ class Cta(models.Model):
 
 
 class ImageBoard(models.Model):
-    name = models.CharField(max_length=20, default='', verbose_name='이름')
-    image = models.ImageField(upload_to=user_path,  blank=True, validators=[validate_file_extension], verbose_name='장비사진')
+    author = models.ForeignKey(User, default=User, verbose_name='작성자')
     subject = models.CharField(max_length=200, default='', verbose_name='제목')
     message = models.TextField(verbose_name='내용')
     created_date = models.DateTimeField(auto_now_add=True, verbose_name='등록일')
@@ -174,6 +173,11 @@ class ImageBoard(models.Model):
 class Images(models.Model):
     image_list = models.ForeignKey(EquipmentIntro)
     image = models.ImageField(upload_to=user_path,  blank=True, validators=[validate_file_extension], verbose_name='장비사진')
+
+
+class BoardImages(models.Model):
+    image_list = models.ForeignKey(ImageBoard)
+    board_image = models.ImageField(upload_to=user_path,  blank=True, validators=[validate_file_extension], verbose_name='장비사진')
 
 
 class Equipments(models.Model):

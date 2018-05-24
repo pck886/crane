@@ -5,6 +5,12 @@ from django.contrib import admin
 from .models import Home, About, EquipmentIntro, Images, Equipments, Phones, CompanyInfo, Cta, ImageBoard
 
 
+class BoardImagesInline(admin.TabularInline):
+    model = BoardImages
+    fields = ['board_image', ]
+    extra = 4
+        
+
 class ImagesInline(admin.TabularInline):
     model = Images
     fields = ['image', ]
@@ -58,6 +64,7 @@ class CtaAdmin(admin.ModelAdmin):
 
 
 class ImageBoardAdmin(admin.ModelAdmin):
+    inlines = [BoardImagesInline, ]
     list_display = ('id', 'subject', 'message', 'image', 'created_date')
     list_display_links = ('id', 'subject')
     search_fields = ('subject', 'message',)
