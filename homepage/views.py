@@ -83,7 +83,7 @@ def image_board(request):
 
 def image_board_single(request):
     id = request.GET.get('id', '')
-    imageboard = BoardImage.objcet.get(pk=id)
+    imageboard = BoardImage.objcet.get(pk=int(id))
     company = CompanyInfo.objects.order_by('pk').first()
 
     return render(request, 'homepage/imageBoardSingle.html', {'imageboard': imageboard, 'company': company})
