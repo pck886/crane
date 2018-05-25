@@ -5,6 +5,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 
 from django.http import JsonResponse
+from django.db.models import Q
 from .serializers import SnippetSerializer
 
 from .models import Home, About, EquipmentIntro, CompanyInfo, BoardImage
@@ -81,7 +82,41 @@ def image_board(request):
 
 
 def image_board_sigle(request):
-    return render(request, 'homepage/imageBoardSigle.html')
+    id = request.GET.get('id')
+    imageboard = BoardImage.objcet.get(id=id)
+    company = CompanyInfo.objects.order_by('pk').first()
+
+    return render(request, 'homepage/imageBoardSigle.html', {'imageboard': imageboard, })
+
+
+def search_image_board(request):
+    search_word = request.GET.get('search_word', '')
+    company = CompanyInfo.objects.order_by('pk').first()
+
+    if search_word:
+
+        image_content = BoardImage.objects.filter(Q(subject__contains=search_word) |
+                                                  Q(image_text__contains=search_word)).distinct().order_by('modified_date')
+
+
+    paginator = Paginator(image_content, 5)
+
+    page = request.GET.get('page')
+
+    try:
+        contacts = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        contacts = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        contacts = paginator.page(paginator.num_pages)
+
+    return render(request, 'homepage/imageBoard.html', {'imageboards': contacts, 'search_word': search_word, 'company': company})
+
+
+
+
 
 
 def equipment_intro_single(request):

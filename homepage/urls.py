@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^equipment_intro_single/(?P<pk>\d+)/$', views.equipment_intro_single, name='equipment_intro_single'),
     url(r'^cta/$',views.cta, name='cta'),
     url(r'^image_board/$',views.image_board, name='image_board'),
+    url(r'^search_image_board/$',views.search_image_board, name='search_image_board'),
     url(r'^image_board_single/$',views.image_board_sigle, name='image_board_single'),
     url(r'^robots.txt$', TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
         name="project_robots_file"),
