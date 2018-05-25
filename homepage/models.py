@@ -176,7 +176,7 @@ class Images(models.Model):
 
 
 class BoardImages(models.Model):
-    image_list = models.ForeignKey(BoardImagecc)
+    image_list = models.ForeignKey(BoardImage)
     board_image = models.ImageField(upload_to=user_path,  blank=True, validators=[validate_file_extension], verbose_name='장비사진')
 
 
