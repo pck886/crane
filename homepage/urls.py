@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^cta/$',views.cta, name='cta'),
     url(r'^image_board/$',views.image_board, name='image_board'),
     url(r'^search_image_board/$',views.search_image_board, name='search_image_board'),
-    url(r'^image_board_single/$',views.image_board_sigle, name='image_board_single'),
+    url(r'^image_board_single/$',views.image_board_single, name='image_board_single'),
     url(r'^robots.txt$', TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
         name="project_robots_file"),
     url(r'^sitemap.xml$', TemplateView.as_view(template_name="sitemap.xml", content_type="text/xml")),

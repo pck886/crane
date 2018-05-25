@@ -81,12 +81,12 @@ def image_board(request):
     return render(request, 'homepage/imageBoard.html', {'imageboards': contacts, 'company': company})
 
 
-def image_board_sigle(request):
-    id = request.GET.get('id')
+def image_board_single(request):
+    id = request.GET.get('id', '')
     imageboard = BoardImage.objcet.get(id=id)
     company = CompanyInfo.objects.order_by('pk').first()
 
-    return render(request, 'homepage/imageBoardSigle.html', {'imageboard': imageboard, })
+    return render(request, 'homepage/imageBoardSingle.html', {'imageboard': imageboard, 'company': company})
 
 
 def search_image_board(request):
