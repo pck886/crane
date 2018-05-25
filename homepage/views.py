@@ -62,7 +62,7 @@ def image_board(request):
     company = CompanyInfo.objects.order_by('pk').first()
 
     if imageboards is None:
-        return render(request, 'homepage/imageboard.html', {'imageboards': imageboards, 'company': company})
+        return render(request, 'homepage/imageBoard.html', {'imageboards': imageboards, 'company': company})
 
     paginator = Paginator(imageboards, 5)
 
@@ -77,7 +77,7 @@ def image_board(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         contacts = paginator.page(paginator.num_pages)
 
-    return render(request, 'homepage/imageboard.html', {'imageboards': contacts, 'company': company})
+    return render(request, 'homepage/imageBoard.html', {'imageboards': contacts, 'company': company})
 
 
 def image_board_sigle(request):
