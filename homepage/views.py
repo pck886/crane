@@ -7,7 +7,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from .serializers import SnippetSerializer
 
-from .models import Home, About, EquipmentIntro, CompanyInfo, ImageBoard
+from .models import Home, About, EquipmentIntro, CompanyInfo, BoardImage
 from .forms import PostForm
 
 
@@ -58,13 +58,13 @@ def cta(request):
 
 
 def image_board(request):
-    imageboards = ImageBoard.objects.all()
+    imageboards = BoardImage.objects.all()
     company = CompanyInfo.objects.order_by('pk').first()
 
-    if images is None:
+    if imageboards is None:
         return render(request, 'homepage/imageboard.html', {'imageboards': imageboards, 'company': company})
 
-    paginator = Paginator(images, 5)
+    paginator = Paginator(imageboards, 5)
 
     page = request.GET.get('page')
 

@@ -150,7 +150,7 @@ class Cta(models.Model):
         return self.subject
 
 
-class ImageBoard(models.Model):
+class BoardImage(models.Model):
     author = models.ForeignKey(User, default=User, verbose_name='작성자')
     subject = models.CharField(max_length=200, default='', verbose_name='제목')
     image_text = models.TextField(verbose_name='내용')
@@ -176,7 +176,7 @@ class Images(models.Model):
 
 
 class BoardImages(models.Model):
-    image_list = models.ForeignKey(ImageBoard)
+    image_list = models.ForeignKey(BoardImagecc)
     board_image = models.ImageField(upload_to=user_path,  blank=True, validators=[validate_file_extension], verbose_name='장비사진')
 
 
