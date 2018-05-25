@@ -65,9 +65,9 @@ class CtaAdmin(admin.ModelAdmin):
 
 class ImageBoardAdmin(admin.ModelAdmin):
     inlines = [BoardImagesInline, ]
-    list_display = ('id', 'subject', 'message', 'created_date')
+    list_display = ('id', 'subject', 'image_text', 'created_date')
     list_display_links = ('id', 'subject')
-    search_fields = ('subject', 'message',)
+    search_fields = ('subject', 'image_text',)
 
 
 admin.site.register(Home, HomeAdmin)

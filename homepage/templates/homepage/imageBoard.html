@@ -30,7 +30,7 @@
 			<!-- posts-container -->
 			<div class="posts-container">
 				<div class="col-md-8 col-sm-8">
-					{% for image in images %}
+					{% for imageboard in imageboards %}
 					<article cla판s="blog-post-wrapper">
 						<div class="figure">
 							<div id="blog-post-carousel" class="carousel slide blog-carousel" data-ride="carousel">
@@ -57,31 +57,31 @@
 						<header class="entry-header clearfix">
 							<aside>
 								<div class="posted-date pull-left">
-									<span class="year">{{ image.created_date|date:'Y' }}</span>
-									<span class="month">{{ image.created_date|date:'M' }},</span>
-									<span class="day">{{ image.created_date|date:'d' }}</span>
+									<span class="year">{{ imageboard.created_date|date:'Y' }}</span>
+									<span class="month">{{ imageboard.created_date|date:'M' }},</span>
+									<span class="day">{{ imageboard.created_date|date:'d' }}</span>
 								</div>	
 						        <div class="clearfix"></div>
 						    </aside>
 
-							<h2 class="entry-title"><a href="blog-single.html" rel="">{{ image.subject }}</a></h2>
+							<h2 class="entry-title"><a href="blog-single.html" rel="">{{ imageboard.subject }}</a></h2>
 
 							<div class="entry-meta">
 					            <ul class="list-inline">
 					                <li>
 					                    <span class="author">
-					                        <small>By</small><a class="url" href="#">{{ image.author }}</a> 
+					                        <small>By</small><a class="url" href="#">{{ imageboard.author }}</a> 
 					                    </span>
 					                </li>
 					            </ul>
 							</div><!-- .entry-meta -->
 						</header><!-- .entry-header -->
 						<div class="entry-content">
-							<p>{{ image.message }}</p>
+							<p>{{ imageboard.message }}</p>
 					    </div><!-- .entry-content -->
 					    <footer class="entry-footer"> 
 							<hr>
-							<a href="{% url 'image_board_single' %}?pk={{ image.pk }}" class="btn btn-primary btn-sm readmore">자세히</a>
+							<a href="{% url 'image_board_single' %}?pk={{ imageboard.pk }}" class="btn btn-primary btn-sm readmore">자세히</a>
 
 						</footer>
 					</article><!-- /.blog-post-wrapper -->
@@ -92,18 +92,18 @@
 
 						<div class="blog-pagination">
 							<ul class="pagination">
-								{% if images.has_previous %}
-									<li><a class="prev" href="?page={{ images.previous_page_number }}">Prev.</a></li>
+								{% if imageboards.has_previous %}
+									<li><a class="prev" href="?page={{ imageboards.previous_page_number }}">Prev.</a></li>
 								{% else %}
 									<li class="disabled"><a class="prev" href="#">Prev.</a></li>
 								{% endif %}
 
-								{% for page in images.paginator.page_range %}
-									<li class="{% if images.number == page %}active{% endif %}"><a href="?page={{ page }}">{{page}}</a></li>
+								{% for page in imageboards.paginator.page_range %}
+									<li class="{% if imageboards.number == page %}active{% endif %}"><a href="?page={{ page }}">{{page}}</a></li>
 								{% endfor %}
 
 								{% if equipment_intros.has_next %}
-									<li><a class="next" href="?page={{ images.next_page_number }}">Next</a></li>
+									<li><a class="next" href="?page={{ imageboards.next_page_number }}">Next</a></li>
 								{% else %}
 									<li class="disabled"><a class="next" href="#">Next</a></li>
 								{% endif %}
