@@ -29,14 +29,14 @@
 		<div class="row">
 			<!-- posts-container -->
 			<div class="posts-container">
-				<div class="col-md-8 col-sm-8">
+				<div class="col-md-12 col-sm-12">
 					{% for imageboard in imageboards %}
 					<article cla판s="blog-post-wrapper">
 						<div class="figure">
 							<div id="blog-post-carousel" class="carousel slide blog-carousel" data-ride="carousel">
 								<!-- Wrapper for slides -->
 						        <div class="carousel-inner">
-						        	{% for image in board_image.board_image_set.all %}
+						        	{% for image in imageboard.boardimages_set.all %}
 									<div class="item {% if forloop.counter is 1 %}active{% endif %}">
 										<div class="post-thumbnail">
 											<img class="img-responsive" src="{{ image.image.url }}">
@@ -81,7 +81,7 @@
 					    </div><!-- .entry-content -->
 					    <footer class="entry-footer"> 
 							<hr>
-							<a href="{% url 'image_board_single' %}?pk={{ imageboard.pk }}" class="btn btn-primary btn-sm readmore">자세히</a>
+							<a href="{% url 'image_board_single' %}?id={{ imageboard.pk }}" class="btn btn-primary btn-sm readmore">자세히</a>
 
 						</footer>
 					</article><!-- /.blog-post-wrapper -->
