@@ -64,13 +64,13 @@
 						        <div class="clearfix"></div>
 						    </aside>
 
-							<h2 class="entry-title"><a href="blog-single.html" rel="">{{ imageboard.subject }}</a></h2>
+							<h2 class="entry-title"><a href="{% url 'image_board_single' %}?id={{ imageboard.pk }}" rel="">{{ imageboard.subject }}</a></h2>
 
 							<div class="entry-meta">
 					            <ul class="list-inline">
 					                <li>
 					                    <span class="author">
-					                        <small>By</small><a class="url" href="#">{{ imageboard.author }}</a> 
+					                        <small>By </small><a class="url" href="#">{{ imageboard.author }}</a>
 					                    </span>
 					                </li>
 					            </ul>
