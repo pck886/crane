@@ -39,7 +39,7 @@
 						        	{% for image in imageboard.boardimages_set.all %}
 									<div class="item {% if forloop.counter is 1 %}active{% endif %}">
 										<div class="post-thumbnail">
-											<img class="img-responsive" src="{{ image.image.url }}">
+											<img class="img-responsive" src="{{ image.url }}">
 										</div>
 									</div>
 									{% endfor %}
