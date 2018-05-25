@@ -36,7 +36,7 @@
 							<div id="blog-post-carousel" class="carousel slide blog-carousel" data-ride="carousel">
 								<!-- Wrapper for slides -->
 						        <div class="carousel-inner">
-						        	{% for image in board_image.images_set.all %}
+						        	{% for image in boardimages.images_set.all %}
 									<div class="item {% if forloop.counter is 1 %}active{% endif %}">
 										<div class="post-thumbnail">
 											<img class="img-responsive" src="{{ image.image.url }}">
@@ -57,9 +57,9 @@
 						<header class="entry-header clearfix">
 							<aside>
 								<div class="posted-date pull-left">
-									<span class="year">{{ imageboard.created_date|date:'Y' }}</span>
-									<span class="month">{{ imageboard.created_date|date:'M' }},</span>
-									<span class="day">{{ imageboard.created_date|date:'d' }}</span>
+									<span class="year">{{ imageboard.created_date|date:'Y' }}년 </span>
+									<span class="month">{{ imageboard.created_date|date:'M' }} </span>
+									<span class="day">{{ imageboard.created_date|date:'d' }}일</span>
 								</div>	
 						        <div class="clearfix"></div>
 						    </aside>
@@ -77,7 +77,7 @@
 							</div><!-- .entry-meta -->
 						</header><!-- .entry-header -->
 						<div class="entry-content">
-							<p>{{ imageboard.message }}</p>
+							<p>{{ imageboard.image_text }}</p>
 					    </div><!-- .entry-content -->
 					    <footer class="entry-footer"> 
 							<hr>
