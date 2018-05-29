@@ -3,6 +3,11 @@
 
 {% block content %}
 {% include 'homepage/header.html' %}
+
+<!-- Blog part -->
+<link href="{% static 'css/YTPlayer.css' %}?{% now 'U' %}" rel="stylesheet" media="screen">
+<link href="{% static 'css/blog.css' %}?{% now 'U' %}" rel="stylesheet" media="screen">
+
 <section class="page-title-section">
 	<div class="container">
 		<div class="row">
@@ -35,7 +40,7 @@
 						<div class="figure">
 							<div id="blog-post-carousel" class="carousel slide blog-carousel" data-ride="carousel">
 								<!-- Wrapper for slides -->
-						        <div class="carousel-inner col-md-8 col-sm-8 center-block">
+						        <div class="carousel-inner">
 						        	{% for image in imageboard.boardimages_set.all %}
 									<div class="item {% if forloop.counter is 1 %}active{% endif %}">
 										<div class="post-thumbnail">
