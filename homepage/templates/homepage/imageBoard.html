@@ -38,7 +38,8 @@
 					{% for imageboard in imageboards %}
 					<article class="blog-post-wrapper">
 						<div class="figure">
-							<div id="blog-post-carousel" class="carousel slide blog-carousel" data-ride="carousel">
+							<!-- <div id="blog-post-carousel" class="carousel slide blog-carousel" data-ride="carousel"> -->
+							<div class="carousel slide" id="myCarousel-{{ forloop.counter0 }}" name="myCarousel-{{ forloop.counter0 }}">
 								<!-- Wrapper for slides -->
 						        <div class="carousel-inner">
 						        	{% for image in imageboard.boardimages_set.all %}
@@ -50,13 +51,12 @@
 									{% endfor %}
 								</div>
 								<!-- Controls -->
-						        <a class="left carousel-control" href="#blog-post-carousel" data-slide="prev">
-						            <i class="fa fa-angle-left"></i>
-						        </a>
-
-						        <a class="right carousel-control" href="#blog-post-carousel" data-slide="next">
-						            <i class="fa fa-angle-right"></i>
-						        </a>
+						        <a class="left carousel-control" href="#myCarousel-{{ forloop.counter0 }}" role="button" data-slide="prev">
+									<span class="glyphicon glyphicon-chevron-left"></span>
+								</a>
+								<a class="right carousel-control" href="#myCarousel-{{ forloop.counter0 }}" role="button" data-slide="next">
+									<span class="glyphicon glyphicon-chevron-right"></span>
+								</a>
 						    </div>
 						</div><!-- /.figure -->
 						<header class="entry-header clearfix">
