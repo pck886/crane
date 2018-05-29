@@ -56,8 +56,8 @@
 						<header class="entry-header clearfix">
 							<aside>
 								<div class="posted-date pull-left">
-									<span class="year">{{ imageboard.created_date|date:'Y' }}년 </span>
-									<span class="month">{{ imageboard.created_date|date:'M' }} </span>
+									<span class="year">{{ imageboard.created_date|date:'Y' }}년&nbsp;</span>
+									<span class="month">{{ imageboard.created_date|date:'M' }}&nbsp;</span>
 									<span class="day">{{ imageboard.created_date|date:'d' }}일</span>
 								</div>	
 						        <div class="clearfix"></div>
@@ -69,14 +69,14 @@
 					            <ul class="list-inline">
 					                <li>
 					                    <span class="author">
-					                        <small>By </small><a class="url" href="#">{{ imageboard.author }}</a>
+					                        <small>By&nbsp;</small><a class="url" href="#">{{ imageboard.author }}</a>
 					                    </span>
 					                </li>
 					            </ul>
 							</div><!-- .entry-meta -->
 						</header><!-- .entry-header -->
 						<div class="entry-content">
-							<pre>{{ imageboard.image_text }}</pre>
+							<p>{{ imageboard.image_text|linebreaksbr }}</p>
 					    </div><!-- .entry-content -->
 					</article><!-- /.blog-post-wrapper -->
 
