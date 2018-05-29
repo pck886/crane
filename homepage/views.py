@@ -82,7 +82,7 @@ def image_board(request):
 
 
 def image_board_single(request):
-    id = '%d' % request.GET.get('id', '')
+    id = request.GET.get('id', '')
     imageboard = BoardImage.objects.get(pk=id)
     company = CompanyInfo.objects.order_by('pk').first()
 
