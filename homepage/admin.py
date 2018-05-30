@@ -68,6 +68,11 @@ class BoardImageAdmin(admin.ModelAdmin):
     list_display = ('id', 'subject', 'image_text', 'created_date')
     list_display_links = ('id', 'subject')
     search_fields = ('subject', 'image_text',)
+    summernote_fields = ('content', )
+
+# Apply summernote to all TextField in model.
+# class SomeModelAdmin(SomeModelAdmin):
+#    summernote_fields = '__all__'
 
 
 admin.site.register(Home, HomeAdmin)
@@ -76,3 +81,4 @@ admin.site.register(EquipmentIntro, EquipmentIntroAdmin)
 admin.site.register(CompanyInfo, CompanyInfoAdmin)
 admin.site.register(Cta, CtaAdmin)
 admin.site.register(BoardImage, BoardImageAdmin)
+#admin.site.register(SomeModel, SomeModelAdmin)
