@@ -103,7 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+"""
 SUMMERNOTE_CONFIG = {
     # Using SummernoteWidget - iframe mode, default
     # 'iframe': True,
@@ -179,7 +179,7 @@ SUMMERNOTE_CONFIG = {
     # }
 }
 
-
+"""
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
