@@ -162,6 +162,7 @@ class BoardImage(models.Model):
         get_latest_by = ('created_date',)
         verbose_name_plural = '사진게시판'
 
+
     def publish(self):
         self.published_date = timezone.now()
         self.save()

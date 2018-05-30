@@ -2,6 +2,8 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
+from django_summernote.admin import SummernoteModelAdmin
+
 from .models import Home, About, EquipmentIntro, Images, Equipments, Phones, CompanyInfo, Cta, BoardImage, BoardImages
 
 
@@ -63,7 +65,7 @@ class CtaAdmin(admin.ModelAdmin):
     search_fields = ('subject', 'message',)
 
 
-class BoardImageAdmin(admin.ModelAdmin):
+class BoardImageAdmin(SummernoteModelAdmin):
     inlines = [BoardImagesInline, ]
     list_display = ('id', 'subject', 'created_date')
     list_display_links = ('id', 'subject')
