@@ -44,7 +44,7 @@
 						        <div class="carousel-inner">
 						        	{% for image in imageboard.boardimages_set.all %}
 									<div class="item {% if forloop.counter is 1 %}active{% endif %}">
-										<div class="post-thumbnail">
+										<div class="post-thumbnail col-md-8 col-sm-8">
 											<img src="{{ image.board_image.url }}">
 										</div>
 									</div>
@@ -82,7 +82,7 @@
 							</div><!-- .entry-meta -->
 						</header><!-- .entry-header -->
 						<div class="entry-content">
-							<p>{{ imageboard.image_text|truncatechars:150 }}</p>
+							<p>{{ imageboard.image_text|striptags|truncatechars:150 }}</p>
 					    </div><!-- .entry-content -->
 					    <footer class="entry-footer"> 
 							<hr>

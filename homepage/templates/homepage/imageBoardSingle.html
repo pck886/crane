@@ -36,37 +36,7 @@
 			<div class="posts-container">
 				<div class="col-md-12 col-sm-12">
 					<article class="blog-post-wrapper">
-						<div class="figure">
-							<!--<div id="blog-post-carousel" class="carousel slide blog-carousel" data-ride="carousel">-->
-							<div class="carousel slide" id="myCarousel-{{ forloop.counter0 }}" name="myCarousel-{{ forloop.counter0 }}">
-								<!-- Wrapper for slides -->
-						        <div class="carousel-inner">
-						        	{% for image in imageboard.boardimages_set.all %}
-									<div class="item {% if forloop.counter is 1 %}active{% endif %}">
-										<div class="post-thumbnail">
-											<img class="img-responsive" src="{{ image.board_image.url }}">
-										</div>
-									</div>
-									{% endfor %}
-								</div>
-								<!-- Controls -->
-						        <a class="left carousel-control" href="#myCarousel-{{ forloop.counter0 }}" role="button" data-slide="prev">
-									<span class="glyphicon glyphicon-chevron-left"></span>
-								</a>
-								<a class="right carousel-control" href="#myCarousel-{{ forloop.counter0 }}" role="button" data-slide="next">
-									<span class="glyphicon glyphicon-chevron-right"></span>
-								</a>
-						    </div>
-						</div><!-- /.figure -->
 						<header class="entry-header clearfix">
-							<aside>
-								<div class="posted-date pull-left">
-									<span class="year">{{ imageboard.created_date|date:'Y' }}년&nbsp;</span>
-									<span class="month">{{ imageboard.created_date|date:'M' }}&nbsp;</span>
-									<span class="day">{{ imageboard.created_date|date:'d' }}일</span>
-								</div>	
-						        <div class="clearfix"></div>
-						    </aside>
 
 							<h2 class="entry-title"><a href="{% url 'image_board_single' %}?id={{ imageboard.pk }}" rel="">{{ imageboard.subject }}</a></h2>
 
@@ -79,6 +49,15 @@
 					                </li>
 					            </ul>
 							</div><!-- .entry-meta -->
+
+							<aside>
+								<div class="posted-date pull-left">
+									<span class="year">{{ imageboard.created_date|date:'Y' }}년&nbsp;</span>
+									<span class="month">{{ imageboard.created_date|date:'M' }}&nbsp;</span>
+									<span class="day">{{ imageboard.created_date|date:'d' }}일</span>
+								</div>
+						        <div class="clearfix"></div>
+						    </aside>
 						</header><!-- .entry-header -->
 						<div class="entry-content">
 							{{ imageboard.image_text|safe }}
