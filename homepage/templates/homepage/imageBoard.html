@@ -37,28 +37,26 @@
 				<div class="col-md-12 col-sm-12">
 					{% for imageboard in imageboards %}
 					<article class="blog-post-wrapper">
-						<div class="figure">
+						<div class="figure col-md-12 col-sm-12">
 							<!-- <div id="blog-post-carousel" class="carousel slide blog-carousel" data-ride="carousel"> -->
-							<div class="carousel slide" id="myCarousel-{{ forloop.counter0 }}" name="myCarousel-{{ forloop.counter0 }}">
-								<div class="col-md-8 col-sm-8">
-									<!-- Wrapper for slides -->
-									<div class="carousel-inner">
-										{% for image in imageboard.boardimages_set.all %}
-										<div class="item {% if forloop.counter is 1 %}active{% endif %}">
-											<div class="post-thumbnail">
-												<img style="height: 450px;" src="{{ image.board_image.url }}">
-											</div>
+							<div class="carousel slide col-md-9 col-sm-9" id="myCarousel-{{ forloop.counter0 }}" name="myCarousel-{{ forloop.counter0 }}">
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner">
+									{% for image in imageboard.boardimages_set.all %}
+									<div class="item {% if forloop.counter is 1 %}active{% endif %}">
+										<div class="post-thumbnail">
+											<img style="height: 450px;" src="{{ image.board_image.url }}">
 										</div>
-										{% endfor %}
 									</div>
-									<!-- Controls -->
-									<a class="left carousel-control" href="#myCarousel-{{ forloop.counter0 }}" role="button" data-slide="prev">
-										<span class="glyphicon glyphicon-chevron-left"></span>
-									</a>
-									<a class="right carousel-control" href="#myCarousel-{{ forloop.counter0 }}" role="button" data-slide="next">
-										<span class="glyphicon glyphicon-chevron-right"></span>
-									</a>
+									{% endfor %}
 								</div>
+								<!-- Controls -->
+								<a class="left carousel-control" href="#myCarousel-{{ forloop.counter0 }}" role="button" data-slide="prev">
+									<span class="glyphicon glyphicon-chevron-left"></span>
+								</a>
+								<a class="right carousel-control" href="#myCarousel-{{ forloop.counter0 }}" role="button" data-slide="next">
+									<span class="glyphicon glyphicon-chevron-right"></span>
+								</a>
 						    </div>
 						</div><!-- /.figure -->
 						<header class="entry-header clearfix">
@@ -84,7 +82,7 @@
 							</div><!-- .entry-meta -->
 						</header><!-- .entry-header -->
 						<div class="entry-content">
-							<p>{{ imageboard.image_text|striptags|safe|truncatechars:150 }}</img>
+							<p>{{ imageboard.image_text|striptags|safe|truncatechars:150 }}</p>
 					    </div><!-- .entry-content -->
 					    <footer class="entry-footer"> 
 							<hr>
