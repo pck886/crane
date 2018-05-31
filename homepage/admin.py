@@ -67,9 +67,10 @@ class CtaAdmin(admin.ModelAdmin):
 
 class BoardImageAdmin(SummernoteModelAdmin):
     inlines = [BoardImagesInline, ]
-    list_display = ('id', 'subject', 'created_date')
+    list_display = ('id', 'subject', 'created_date', 'modified_date')
     list_display_links = ('id', 'subject')
     search_fields = ('subject', 'image_text',)
+    ordering = ('-created_date',)
     summernote_fields = ('image_text', )
 
 # Apply summernote to all TextField in model.
