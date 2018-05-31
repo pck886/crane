@@ -39,13 +39,13 @@
 					<article class="blog-post-wrapper">
 						<div class="figure">
 							<!-- <div id="blog-post-carousel" class="carousel slide blog-carousel" data-ride="carousel"> -->
-							<div class="carousel slide col-md-8 col-sm-8 center-block" id="myCarousel-{{ forloop.counter0 }}" name="myCarousel-{{ forloop.counter0 }}">
+							<div class="carousel slide" id="myCarousel-{{ forloop.counter0 }}" name="myCarousel-{{ forloop.counter0 }}">
 								<!-- Wrapper for slides -->
-						        <div class="carousel-inner">
+						        <div class="carousel-inner col-md-8 col-sm-8">
 						        	{% for image in imageboard.boardimages_set.all %}
 									<div class="item {% if forloop.counter is 1 %}active{% endif %}">
 										<div class="post-thumbnail">
-											<img style="height: 250px;" src="{{ image.board_image.url }}">
+											<img style="height: 450px;" src="{{ image.board_image.url }}">
 										</div>
 									</div>
 									{% endfor %}
