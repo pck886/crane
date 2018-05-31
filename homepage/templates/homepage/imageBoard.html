@@ -37,7 +37,7 @@
 				<div class="col-md-12 col-sm-12">
 					{% for imageboard in imageboards %}
 					<article class="blog-post-wrapper">
-						<div class="figure" style="width: 100%">
+						<div class="figure col-md-12 col-sm-12">
 							<!-- <div id="blog-post-carousel" class="carousel slide blog-carousel" data-ride="carousel"> -->
 							<div class="carousel slide col-md-9 col-sm-9" style="padding-left: 0px;" id="myCarousel-{{ forloop.counter0 }}" name="myCarousel-{{ forloop.counter0 }}">
 								<!-- Wrapper for slides -->
@@ -59,7 +59,7 @@
 								</a>
 						    </div>
 						</div><!-- /.figure -->
-						<header class="entry-header clearfix">
+						<header class="entry-header clearfix col-md-12 col-sm-12">
 							<aside>
 								<div class="posted-date pull-left">
 									<span class="year">{{ imageboard.created_date|date:'Y' }}년&nbsp;</span>
@@ -81,10 +81,10 @@
 					            </ul>
 							</div><!-- .entry-meta -->
 						</header><!-- .entry-header -->
-						<div class="entry-content">
+						<div class="entry-content col-md-12 col-sm-12">
 							<p>{{ imageboard.image_text|striptags|safe|truncatechars:150 }}</p>
 					    </div><!-- .entry-content -->
-					    <footer class="entry-footer"> 
+					    <footer class="entry-footer col-md-12 col-sm-12">
 							<hr>
 							<a href="{% url 'image_board_single' %}?id={{ imageboard.pk }}" class="btn btn-primary btn-sm readmore">자세히</a>
 
