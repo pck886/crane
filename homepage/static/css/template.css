@@ -417,10 +417,6 @@ a.carousel-control:focus {
     opacity: 0;
 }
 
-a.carousel-control:focus:hover {
-    opacity: 0;
-}
-
 a.carousel-control i {
   position: absolute;
   background: rgba(255, 255, 255, 0.5);
