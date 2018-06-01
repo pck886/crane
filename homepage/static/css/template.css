@@ -414,11 +414,11 @@ a.carousel-control {
 }
 
 a.carousel-control:focus {
-    opacity: 0.5;
+    opacity: 1;
 }
 
 a.carousel-control:focus:hover {
-    opacity: 0.9;
+    opacity: 1;
 }
 
 a.carousel-control i {
