@@ -59,7 +59,7 @@ def cta(request):
 
 
 def image_board(request):
-    imageboards = BoardImage.objects.all().order_by('pk')
+    imageboards = BoardImage.objects.all().order_by('-pk')
     company = CompanyInfo.objects.order_by('pk').first()
 
     if imageboards is None:
