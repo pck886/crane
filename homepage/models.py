@@ -160,7 +160,7 @@ class BoardImage(models.Model):
     class Meta:
         ordering = ('created_date',)
         get_latest_by = ('created_date',)
-        verbose_name_plural = '사진게시판'
+        verbose_name_plural = '공사실적'
 
 
     def publish(self):
